@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'MSW98';
+  src: url('/fonts/msw98-reg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MSW98';
+  src: url('/fonts/msw98-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --font-family: 'MSW98', sans-serif;
+  --white: #FFF;
+  --black: #000;
+  --navy: #000080;
+  --blue: #1084d0;
+  --silver: #c0c0c0;
+  --gray: #808080;
+  --cyan: #008080;
+
+  --background: var(--silver);
+  --foreground: var(--black);
+
+  --accent: var(--navy);
+  --accent-foreground: var(--white);
+
+  --muted: var(--silver);
+  --muted-foreground: var(--gray);
+
+  --content: var(--white);
+  --content-foreground: var(--black);
+
+  --scale: 1;
+}
+
+body {
+  font-size: calc(12px * var(--scale));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  font-family: var(--font-family);
+}
+
+*:focus {
+  outline-style: dotted;
+  outline-color: var(--gray);
+}
+
+::selection {
+  background-color: var(--navy);
+  color: var(--white);
+}
