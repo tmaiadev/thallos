@@ -12,7 +12,7 @@
   font-style: normal;
 }
 
-:root {
+.thallos {
   --font-family: 'MSW98', sans-serif;
   --white: #FFF;
   --black: #000;
@@ -35,27 +35,32 @@
   --content-foreground: var(--black);
 
   --scale: 1;
-}
 
-body {
-  font-size: calc(12px * var(--scale));
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  min-width: 0;
-  max-width: 100%;
+  background-color: var(--cyan);
   font-family: var(--font-family);
+  font-size: calc(12px * var(--scale));
+
+  &:is(body) {
+    margin: 0;
+    width: 100dvw;
+    height: 100dvh;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-color: var(--white);
+
+    :focus {
+      outline-style: dotted;
+      outline-color: var(--gray);
+    }
+  }
+
+  ::selection {
+    background-color: transparent;
+    color: inherit;
+  }
 }
 
-*:focus {
-  outline-style: dotted;
-  outline-color: var(--gray);
-}
-
-::selection {
-  background-color: var(--navy);
-  color: var(--white);
-}
