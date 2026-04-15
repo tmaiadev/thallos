@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/utils/cn";
-import "./button.css";
+import "./styles.css";
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 	type?: "button" | "submit" | "reset";
