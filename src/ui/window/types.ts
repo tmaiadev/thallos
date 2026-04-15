@@ -9,6 +9,11 @@ export interface DialogProps extends React.HTMLAttributes<HTMLDialogElement> {
     children: React.ReactNode;
 }
 
+export interface ResizerHandleProps {
+  id: string;
+  type: ResizerHandleType;
+}
+
 export interface WindowProps extends React.HTMLAttributes<HTMLDialogElement> {
 	id: string;
 	title: string;

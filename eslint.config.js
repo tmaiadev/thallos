@@ -24,7 +24,7 @@ export default defineConfig([
       'semi': ['error', 'always'],
       'quotes': ['error', 'double'],
       'max-len': ['error', { code: 80 }],
-      'indent': ['error', 2],
+      'indent': ['error', 2, { SwitchCase: 2 }],
     },
   },
 ])

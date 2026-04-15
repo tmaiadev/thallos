@@ -24,14 +24,14 @@ export default function Window({
       <div className="window__content">
         {children}
       </div>
-      <ResizerHandle type="top" />
-      <ResizerHandle type="bottom" />
-      <ResizerHandle type="left" />
-      <ResizerHandle type="right" />
-      <ResizerHandle type="top-left" />
-      <ResizerHandle type="top-right" />
-      <ResizerHandle type="bottom-left" />
-      <ResizerHandle type="bottom-right" />
+      <ResizerHandle id={id} type="top" />
+      <ResizerHandle id={id} type="bottom" />
+      <ResizerHandle id={id} type="left" />
+      <ResizerHandle id={id} type="right" />
+      <ResizerHandle id={id} type="top-left" />
+      <ResizerHandle id={id} type="top-right" />
+      <ResizerHandle id={id} type="bottom-left" />
+      <ResizerHandle id={id} type="bottom-right" />
     </Dialog>
   </Provider>;
 }

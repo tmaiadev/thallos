@@ -1,9 +1,13 @@
 .window {
 	--x: 0px;
 	--y: 0px;
+  --h: min-content;
+  --w: min-content;
 
 	display: flex;
 	flex-direction: column;
+  width: var(--w);
+  height: var(--h);
 	min-width: min-content;
 	min-height: min-content;
 
