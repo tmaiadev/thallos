@@ -3,10 +3,10 @@ import { Context } from "../context";
 import type { State } from "../types";
 
 export default function Provider({ children }: { children: React.ReactNode }) {
-    const [state, setState] = useState<State>("default");
+  const [state, setState] = useState<State>("default");
 
-    return <Context.Provider value={{ state, setState }}>
-        {children}
-    </Context.Provider>
+  return <Context.Provider value={{ state, setState }}>
+    {children}
+  </Context.Provider>;
 }
 

@@ -1,6 +1,8 @@
 export type State = "default" | "maximized" | "minimized";
 
-export type ResizerHandleType = "top" | "bottom" | "left" | "right" | "top-left" | "top-right" | "bottom-left" | "bottom-right";
+export type ResizerHandleType =
+  | "top" | "bottom" | "left" | "right"
+  | "top-left" | "top-right" | "bottom-left" | "bottom-right";
 
 export interface DialogProps extends React.HTMLAttributes<HTMLDialogElement> {
     ref?: React.Ref<HTMLDialogElement>;

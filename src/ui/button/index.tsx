@@ -8,14 +8,14 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 }
 
 export default function Button({
-	children,
-	className,
-	type = "button",
-	...props
+  children,
+  className,
+  type = "button",
+  ...props
 }: ButtonProps) {
-	return <button type={type} className={cn("button", className)} {...props}>
-		<div className="button__content">
-			{children}
-		</div>
-	</button>
+  return <button type={type} className={cn("button", className)} {...props}>
+    <div className="button__content">
+      {children}
+    </div>
+  </button>;
 }

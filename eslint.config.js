@@ -21,6 +21,10 @@ export default defineConfig([
     },
     rules: {
       '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
+      'semi': ['error', 'always'],
+      'quotes': ['error', 'double'],
+      'max-len': ['error', { code: 80 }],
+      'indent': ['error', 2],
     },
   },
 ])
