@@ -41,7 +41,7 @@ export default function ResizerHandle({ id, type }: ResizerHandleProps) {
         type === "bottom-left"
       ) {
         dialog.style.setProperty(
-          "--h", `${dialogInitH + diffY}px`
+          "--h", `${Math.max(0, dialogInitH + diffY)}px`
         );
       }
 
@@ -51,10 +51,12 @@ export default function ResizerHandle({ id, type }: ResizerHandleProps) {
         type === "top-right"
       ) {
         dialog.style.setProperty(
-          "--h", `${dialogInitH - diffY}px`
+          "--h", `${Math.max(0, dialogInitH - diffY)}px`
         );
+        const actualH = dialog.clientHeight;
         dialog.style.setProperty(
-          "--y", `${dialogInitY + diffY}px`
+          "--y",
+          `${dialogInitY + (dialogInitH - actualH)}px`
         );
       }
 
@@ -64,7 +66,7 @@ export default function ResizerHandle({ id, type }: ResizerHandleProps) {
         type === "top-right"
       ) {
         dialog.style.setProperty(
-          "--w", `${dialogInitW + diffX}px`
+          "--w", `${Math.max(0, dialogInitW + diffX)}px`
         );
       }
 
@@ -74,10 +76,12 @@ export default function ResizerHandle({ id, type }: ResizerHandleProps) {
         type === "top-left"
       ) {
         dialog.style.setProperty(
-          "--w", `${dialogInitW - diffX}px`
+          "--w", `${Math.max(0, dialogInitW - diffX)}px`
         );
+        const actualW = dialog.clientWidth;
         dialog.style.setProperty(
-          "--x", `${dialogInitX + diffX}px`
+          "--x",
+          `${dialogInitX + (dialogInitW - actualW)}px`
         );
       }
     }
