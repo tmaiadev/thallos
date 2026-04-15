@@ -1,9 +1,11 @@
 .window {
-	--x: 0;
-	--y: 0;
+	--x: 0px;
+	--y: 0px;
 
 	display: flex;
 	flex-direction: column;
+	min-width: min-content;
+	min-height: min-content;
 
 	color: var(--foreground);
 	background-color: var(--background);
@@ -11,9 +13,8 @@
 	border-style: outset;
 	
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(calc(-50% + var(--x) * 1px), calc(-50% + var(--y) * 1px));
+	left: var(--x);
+	top: var(--y);
 
 	&.window--maximized {
 		width: 100%;
@@ -49,6 +50,12 @@
 			flex-shrink: 1;
 			overflow: hidden;
 		}
+	}
+
+	.window__content {
+		flex-grow: 1;
+		flex-shrink: 1;
+		overflow: hidden;
 	}
 
 	&:focus-within {
