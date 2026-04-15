@@ -8,48 +8,42 @@ export default function TitleBar({
   const { state, setState } = useContext(Context);
   const titleBarRef = useRef<HTMLDivElement>(null);
 
-  // Dragging window
   useEffect(() => {
     const titleBar = titleBarRef.current;
     const dialog = document.getElementById(id) as HTMLDialogElement;
 
     if (!titleBar) return;
 
-    let isDragging = false,
-      mouseInitX = 0,
-      mouseInitY = 0,
-      mouseX = 0,
-      mouseY = 0,
-      dialogInitX = 0,
-      dialogInitY = 0;
+    const set = (prop: string, value: number) =>
+      dialog.style.setProperty(prop, `${value}px`);
+
+    const drag = {
+      active: false,
+      initX: 0, initY: 0,
+      mouseX: 0, mouseY: 0,
+    };
 
     function onDragStart(event: MouseEvent) {
-      isDragging = true;
-      mouseInitX = event.screenX;
-      mouseInitY = event.screenY;
-
-      dialogInitX = parseInt(dialog.style.getPropertyValue("--x") || "0", 10);
-      dialogInitY = parseInt(dialog.style.getPropertyValue("--y") || "0", 10);
+      drag.active = true;
+      drag.initX = parseInt(
+        dialog.style.getPropertyValue("--x") || "0", 10
+      );
+      drag.initY = parseInt(
+        dialog.style.getPropertyValue("--y") || "0", 10
+      );
+      drag.mouseX = event.screenX;
+      drag.mouseY = event.screenY;
     }
 
     function onDragMove(event: MouseEvent) {
-      if (!isDragging) return;
+      if (!drag.active) return;
 
-      mouseX = event.screenX;
-      mouseY = event.screenY;
-
-      const diffX = mouseX - mouseInitX;
-      const diffY = mouseY - mouseInitY;
-
-      const x = diffX + dialogInitX;
-      const y = diffY + dialogInitY;
-
-      dialog.style.setProperty("--x", `${x}px`);
-      dialog.style.setProperty("--y", `${y}px`);
+      set("--x", drag.initX + (event.screenX - drag.mouseX));
+      set("--y", drag.initY + (event.screenY - drag.mouseY));
     }
 
     function onDragEnd() {
-      if (isDragging) isDragging = false;
+      drag.active = false;
     }
 
     titleBar.addEventListener("mousedown", onDragStart);
@@ -63,37 +57,33 @@ export default function TitleBar({
     };
   }, [id]);
 
-  // Maximizing / Restoring
   useEffect(() => {
     const titleBar = titleBarRef.current;
 
     if (!titleBar) return;
 
-    let clickTime = 0;
+    let lastClick = 0;
     function onClick() {
       const now = Date.now();
-      const diff = now - clickTime;
-
-      if (diff < 300) {
+      if (now - lastClick < 300) {
         setState(state === "maximized" ? "default" : "maximized");
       }
-
-      clickTime = now;
+      lastClick = now;
     }
 
     titleBar.addEventListener("click", onClick);
-    return () => {
-      titleBar.removeEventListener("click", onClick);
-    };
+    return () => titleBar.removeEventListener("click", onClick);
   }, [state, setState]);
 
-  return <div className="window__title-bar" ref={titleBarRef}>
-    <h2
-      id={`${id}-title`}
-      className="window__title-bar__title"
-    >
-      {children}
-    </h2>
-    <Arrangement />
-  </div>;
+  return (
+    <div className="window__title-bar" ref={titleBarRef}>
+      <h2
+        id={`${id}-title`}
+        className="window__title-bar__title"
+      >
+        {children}
+      </h2>
+      <Arrangement />
+    </div>
+  );
 }

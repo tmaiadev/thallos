@@ -11,84 +11,55 @@ export default function ResizerHandle({ id, type }: ResizerHandleProps) {
 
     if (!handle) return;
 
-    let isDragging = false,
-      dialogInitH = 0,
-      dialogInitW = 0,
-      dialogInitX = 0,
-      dialogInitY = 0,
-      mouseInitX = 0,
-      mouseInitY = 0;
+    const affects = (side: string) => type.includes(side);
+    const set = (prop: string, value: number) =>
+      dialog.style.setProperty(prop, `${value}px`);
+
+    const drag = {
+      active: false,
+      initH: 0, initW: 0,
+      initX: 0, initY: 0,
+      mouseX: 0, mouseY: 0,
+    };
 
     function onDragStart(event: MouseEvent) {
-      isDragging = true;
-      dialogInitH = dialog.clientHeight;
-      dialogInitW = dialog.clientWidth;
-      dialogInitX = dialog.offsetLeft;
-      dialogInitY = dialog.offsetTop;
-      mouseInitX = event.screenX;
-      mouseInitY = event.screenY;
+      drag.active = true;
+      drag.initH = dialog.clientHeight;
+      drag.initW = dialog.clientWidth;
+      drag.initX = dialog.offsetLeft;
+      drag.initY = dialog.offsetTop;
+      drag.mouseX = event.screenX;
+      drag.mouseY = event.screenY;
     }
 
     function onDragMove(event: MouseEvent) {
-      if (!isDragging) return;
+      if (!drag.active) return;
 
-      const diffX = event.screenX - mouseInitX;
-      const diffY = event.screenY - mouseInitY;
+      const diffX = event.screenX - drag.mouseX;
+      const diffY = event.screenY - drag.mouseY;
 
-      if (
-        type === "bottom" ||
-        type === "bottom-right" ||
-        type === "bottom-left"
-      ) {
-        dialog.style.setProperty(
-          "--h", `${Math.max(0, dialogInitH + diffY)}px`
-        );
+      if (affects("bottom")) {
+        set("--h", Math.max(0, drag.initH + diffY));
       }
 
-      if (
-        type === "top" ||
-        type === "top-left" ||
-        type === "top-right"
-      ) {
-        dialog.style.setProperty(
-          "--h", `${Math.max(0, dialogInitH - diffY)}px`
-        );
-        const actualH = dialog.clientHeight;
-        dialog.style.setProperty(
-          "--y",
-          `${dialogInitY + (dialogInitH - actualH)}px`
-        );
+      if (affects("top")) {
+        set("--h", Math.max(0, drag.initH - diffY));
+        set("--y", drag.initY + (drag.initH - dialog.clientHeight));
       }
 
-      if (
-        type === "right" ||
-        type === "bottom-right" ||
-        type === "top-right"
-      ) {
-        dialog.style.setProperty(
-          "--w", `${Math.max(0, dialogInitW + diffX)}px`
-        );
+      if (affects("right")) {
+        set("--w", Math.max(0, drag.initW + diffX));
       }
 
-      if (
-        type === "left" ||
-        type === "bottom-left" ||
-        type === "top-left"
-      ) {
-        dialog.style.setProperty(
-          "--w", `${Math.max(0, dialogInitW - diffX)}px`
-        );
-        const actualW = dialog.clientWidth;
-        dialog.style.setProperty(
-          "--x",
-          `${dialogInitX + (dialogInitW - actualW)}px`
-        );
+      if (affects("left")) {
+        set("--w", Math.max(0, drag.initW - diffX));
+        set("--x", drag.initX + (drag.initW - dialog.clientWidth));
       }
     }
 
     function onDragEnd() {
-      if (!isDragging) return;
-      isDragging = false;
+      if (!drag.active) return;
+      drag.active = false;
     }
 
     handle.addEventListener("mousedown", onDragStart);
