@@ -1,7 +1,7 @@
 .button {
   appearance: none;
-  min-width: 16px;
-  min-height: 16px;
+  min-width: calc(var(--scale) * 16px);
+  min-height: calc(var(--scale) * 16px);
   outline-style: none;
   background-color: var(--silver);
   font-family: inherit;

@@ -157,4 +157,9 @@
       }
     }
   }
+
+  .window__window-controls-icon {
+    width: calc(var(--scale) * 10px);
+    height: calc(var(--scale) * 10px);
+  }
 }
