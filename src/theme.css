@@ -21,19 +21,14 @@
   --silver: #c0c0c0;
   --gray: #808080;
   --cyan: #008080;
-
   --background: var(--silver);
   --foreground: var(--black);
-
   --accent: var(--navy);
   --accent-foreground: var(--white);
-
   --muted: var(--silver);
   --muted-foreground: var(--gray);
-
   --content: var(--white);
   --content-foreground: var(--black);
-
   --scale: 1;
 
   background-color: var(--cyan);
