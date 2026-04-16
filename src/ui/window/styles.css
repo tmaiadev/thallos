@@ -27,7 +27,7 @@
   }
 
   &:focus {
-    outline: none;
+    outline-style: none;
   }
 
   .window__title-bar {
