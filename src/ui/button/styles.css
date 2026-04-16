@@ -4,10 +4,17 @@
   min-height: 16px;
   outline-style: none;
   background-color: var(--silver);
+  font-family: inherit;
 
-  :focus-within {
+  &:focus-within {
     .button__content {
       outline-style: dotted;
     }
+  }
+
+  .button__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

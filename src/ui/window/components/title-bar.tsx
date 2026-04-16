@@ -77,12 +77,14 @@ export default function TitleBar({
 
   return (
     <div className="window__title-bar" ref={titleBarRef}>
-      <h2
-        id={`${id}-title`}
-        className="window__title-bar__title"
-      >
-        {children}
-      </h2>
+      <div className="window__title-bar__title-slot">
+        <h2
+          id={`${id}-title`}
+          className="window__title-bar__title"
+        >
+          {children}
+        </h2>
+      </div>
       <WindowControls />
     </div>
   );
