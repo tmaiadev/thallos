@@ -1,6 +1,6 @@
 import { useContext, useRef, useEffect } from "react";
 import { Context } from "../context";
-import Arrangement from "./arrangement";
+import WindowControls from "./window-controls";
 
 export default function TitleBar({
   id, children,
@@ -83,7 +83,7 @@ export default function TitleBar({
       >
         {children}
       </h2>
-      <Arrangement />
+      <WindowControls />
     </div>
   );
 }

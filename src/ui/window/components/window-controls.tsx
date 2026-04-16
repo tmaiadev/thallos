@@ -2,14 +2,14 @@ import { useContext } from "react";
 import { Context } from "../context";
 import Button from "@/ui/button";
 
-export default function Arrangement() {
+export default function WindowControls() {
   const { state, setState } = useContext(Context);
 
   return (
     <div
       role="group"
-      aria-label="Window Arrangement"
-      className="window__arrangement"
+      aria-label="Window Controls"
+      className="window__controls"
     >
       <Button aria-label="Minimize" onClick={() => setState("minimized")}>
         _
