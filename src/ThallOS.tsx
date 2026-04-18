@@ -1,7 +1,5 @@
-import Window from "@/ui/window";
+import Workspace from "@/ui/workspace";
 
 export default function ThallOS() {
-  return <>
-    <Window id="demo" title="Welcome to ThallOS">Hello</Window>
-  </>;
+  return <Workspace />;
 }

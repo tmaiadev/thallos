@@ -1,0 +1,27 @@
+.workspace {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+
+  .workspace__desktop {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .workspace__taskbar {
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: calc(var(--scale) * 2px);
+    border: outset calc(var(--scale) * 2px);
+    background: var(--background);
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+}
