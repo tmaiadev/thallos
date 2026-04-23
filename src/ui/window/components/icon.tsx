@@ -1,4 +1,4 @@
-import type { WindowIconProps } from "../types";
+import type { WindowIconProps } from "../Window.types";
 
 const ICONS = {
   minimize: <rect x="1" y="8" width="8" height="2" />,
@@ -43,7 +43,6 @@ export default function Icon({ type }: WindowIconProps) {
       viewBox="0 0 10 10"
       shapeRendering="crispEdges"
       fill="currentColor"
-      className="window__window-controls-icon"
     >
       {ICONS[type]}
     </svg>

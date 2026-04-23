@@ -1,6 +1,7 @@
 import { useContext, useRef, useEffect } from "react";
-import { Context } from "../context";
-import WindowControls from "./window-controls";
+import { Context } from "../Window.context";
+import WindowControls from "./WindowControls";
+import styles from "./TitleBar.module.css";
 
 export default function TitleBar({
   id, children,
@@ -76,11 +77,11 @@ export default function TitleBar({
   }, [state, setState]);
 
   return (
-    <div className="window__title-bar" ref={titleBarRef}>
-      <div className="window__title-bar__title-slot">
+    <div className={styles["title-bar"]} ref={titleBarRef}>
+      <div className={styles["title-slot"]}>
         <h2
           id={`${id}-title`}
-          className="window__title-bar__title"
+          className={styles.title}
         >
           {children}
         </h2>

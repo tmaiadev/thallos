@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { cn } from "@/utils/cn";
-import type { ResizerHandleProps } from "../types";
+import type { ResizerHandleProps } from "../Window.types";
+import styles from "./ResizerHandle.module.css";
 
 export default function ResizerHandle({ id, type }: ResizerHandleProps) {
   const handleRef = useRef<HTMLDivElement>(null);
@@ -76,8 +77,8 @@ export default function ResizerHandle({ id, type }: ResizerHandleProps) {
   return (
     <div
       className={cn(
-        "window__resizer-handle",
-        `window__resizer-handle--${type}`
+        styles["resizer-handle"],
+        styles[type]
       )}
       ref={handleRef}
     />

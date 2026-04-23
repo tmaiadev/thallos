@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/utils/cn";
-import "./styles.css";
+import styles from "./Button.module.css";
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   type?: "button" | "submit" | "reset";
@@ -19,14 +19,14 @@ export default function Button({
     type={type}
     className={
       cn(
-        "button",
-        size == "md" && "button--md",
-        size == "lg" && "button--lg",
+        styles.button,
+        size === "md" && styles.md,
+        size === "lg" && styles.lg,
         className
       )
     }
     {...props}>
-    <div className="button__content">
+    <div className={styles.content}>
       {children}
     </div>
   </button>;

@@ -1,9 +1,0 @@
-.system-tray {
-    display: flex;
-    align-items: center;
-    padding: calc(var(--scale) * 2px) !important;
-    white-space: nowrap;
-    border-style: inset;
-    height: 100%;
-    cursor: default;
-}

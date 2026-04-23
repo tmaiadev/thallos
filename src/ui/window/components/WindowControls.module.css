@@ -1,0 +1,10 @@
+.controls {
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--scale) * 1px);
+}
+
+.button {
+  width: calc(var(--scale) * 16px);
+  height: calc(var(--scale) * 16px);
+}

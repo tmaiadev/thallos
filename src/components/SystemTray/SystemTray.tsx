@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import "./styles.css";
+import styles from "./SystemTray.module.css";
 
 export default function SystemTray() {
   const clockRef = useRef<HTMLTimeElement>(null);
@@ -28,7 +28,7 @@ export default function SystemTray() {
     };
   }, []);
 
-  return <div className="system-tray">
-    <time className="system-tray__clock" ref={clockRef}>00:00</time>
+  return <div className={styles["system-tray"]}>
+    <time className={styles.clock} ref={clockRef}>00:00</time>
   </div>;
 }

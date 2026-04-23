@@ -1,9 +1,9 @@
-import Provider from "./components/provider";
-import type { WindowProps } from "./types";
-import Dialog from "./components/dialog";
-import TitleBar from "./components/title-bar";
-import ResizerHandle from "./components/resizer-handle";
-import "./styles.css";
+import Provider from "./components/Provider";
+import type { WindowProps } from "./Window.types";
+import Dialog from "./components/Dialog";
+import TitleBar from "./components/TitleBar";
+import ResizerHandle from "./components/ResizerHandle";
+import styles from "./Window.module.css";
 
 export default function Window({
   id,
@@ -21,7 +21,7 @@ export default function Window({
       {...props}
     >
       <TitleBar id={id}>{title}</TitleBar>
-      <div className="window__content">
+      <div className={styles.content}>
         {children}
       </div>
       <ResizerHandle id={id} type="top" />

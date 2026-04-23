@@ -6,21 +6,21 @@
   background-color: var(--silver);
   font-family: inherit;
 
-  &.button--md {
+  &.md {
     padding: calc(var(--scale) * 2px) calc(var(--scale) * 4px);
   }
 
-  &.button--lg {
+  &.lg {
     padding: calc(var(--scale) * 4px) calc(var(--scale) * 8px);
   }
 
   &:focus-within {
-    .button__content {
+    .content {
       outline-style: dotted;
     }
   }
 
-  .button__content {
+  .content {
     display: flex;
     align-items: center;
     justify-content: center;

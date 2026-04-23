@@ -1,12 +1,12 @@
 .taskbar {
-	display: flex;
-	gap: calc(var(--scale) * 4px);
+  display: flex;
+  gap: calc(var(--scale) * 4px);
 
-	.taskbar__divider {
+  .divider {
     border-style: inset;
-	}
+  }
 
-	.taskbar__tasks {
+  .tasks {
     flex-grow: 1;
     flex-shrink: 1;
     width: 100%;
@@ -14,11 +14,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-	}
+  }
 
-	.taskbar__system-tray {
+  .system-tray {
     display: flex;
     align-items: center;
     justify-content: center;
-	}
+  }
 }
