@@ -6,6 +6,14 @@
   background-color: var(--silver);
   font-family: inherit;
 
+  &.button--md {
+    padding: calc(var(--scale) * 2px) calc(var(--scale) * 4px);
+  }
+
+  &.button--lg {
+    padding: calc(var(--scale) * 4px) calc(var(--scale) * 8px);
+  }
+
   &:focus-within {
     .button__content {
       outline-style: dotted;
