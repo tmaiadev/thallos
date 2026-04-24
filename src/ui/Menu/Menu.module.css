@@ -1,0 +1,25 @@
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: calc(var(--scale) * 2px) 0;
+  background-color: var(--background);
+  outline-style: none;
+  outline-width: calc(var(--scale) * 2px);
+  font-family: var(--font-family);
+  font-size: calc(var(--scale) * 12px);
+
+  &:focus {
+    outline-style: none !important;
+  }
+
+  &.is-vertical {
+    display: flex;
+    flex-direction: column;
+    min-width: calc(var(--scale) * 160px);
+  }
+
+  &.is-horizontal {
+    display: flex;
+    flex-direction: row;
+  }
+}

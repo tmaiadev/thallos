@@ -18,24 +18,32 @@ describe("Window", () => {
   });
 
   it("renders 8 resizer handles", () => {
-    const { container } = render(<Window id="w1" title="My Window">Content</Window>);
+    const { container } = render(
+      <Window id="w1" title="My Window">Content</Window>
+    );
     expect(container.querySelectorAll(".resizer-handle")).toHaveLength(8);
   });
 
   it("renders window controls", () => {
     render(<Window id="w1" title="My Window">Content</Window>);
-    expect(screen.getByRole("group", { name: "Window Controls" })).toBeInTheDocument();
+    const controls = screen.getByRole("group", { name: "Window Controls" });
+    expect(controls).toBeInTheDocument();
   });
 
   it("renders minimize, maximize and close buttons", () => {
     render(<Window id="w1" title="My Window">Content</Window>);
-    expect(screen.getByRole("button", { name: "Minimize" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Maximize" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Close" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Minimize" }))
+      .toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Maximize" }))
+      .toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Close" }))
+      .toBeInTheDocument();
   });
 
   it("applies content class to content wrapper", () => {
-    const { container } = render(<Window id="w1" title="My Window">Content</Window>);
+    const { container } = render(
+      <Window id="w1" title="My Window">Content</Window>
+    );
     expect(container.querySelector(".content")).toBeInTheDocument();
   });
 });

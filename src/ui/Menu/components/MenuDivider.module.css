@@ -1,0 +1,6 @@
+.menu-divider {
+  height: 0;
+  margin: calc(var(--scale) * 3px) calc(var(--scale) * 4px);
+  border-top: calc(var(--scale) * 1px) solid var(--gray);
+  border-bottom: calc(var(--scale) * 1px) solid var(--white);
+}

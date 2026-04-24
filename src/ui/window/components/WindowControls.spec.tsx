@@ -13,17 +13,20 @@ function renderControls() {
 describe("WindowControls", () => {
   it("renders the controls group", () => {
     renderControls();
-    expect(screen.getByRole("group", { name: "Window Controls" })).toBeInTheDocument();
+    const controls = screen.getByRole("group", { name: "Window Controls" });
+    expect(controls).toBeInTheDocument();
   });
 
   it("renders Minimize button", () => {
     renderControls();
-    expect(screen.getByRole("button", { name: "Minimize" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Minimize" }))
+      .toBeInTheDocument();
   });
 
   it("renders Maximize button in default state", () => {
     renderControls();
-    expect(screen.getByRole("button", { name: "Maximize" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Maximize" }))
+      .toBeInTheDocument();
   });
 
   it("renders Close button", () => {
@@ -34,15 +37,18 @@ describe("WindowControls", () => {
   it("clicking Maximize shows Restore button", () => {
     renderControls();
     fireEvent.click(screen.getByRole("button", { name: "Maximize" }));
-    expect(screen.getByRole("button", { name: "Restore" })).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Maximize" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Restore" }))
+      .toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Maximize" }))
+      .not.toBeInTheDocument();
   });
 
   it("clicking Restore shows Maximize button", () => {
     renderControls();
     fireEvent.click(screen.getByRole("button", { name: "Maximize" }));
     fireEvent.click(screen.getByRole("button", { name: "Restore" }));
-    expect(screen.getByRole("button", { name: "Maximize" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Maximize" }))
+      .toBeInTheDocument();
   });
 
   it("clicking Minimize hides the dialog", () => {

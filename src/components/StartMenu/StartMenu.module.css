@@ -1,0 +1,42 @@
+.start-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.popup {
+  position: absolute;
+  bottom: calc(100% + calc(var(--scale) * 2px));
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  outline-color: var(--white);
+  outline-style: outset;
+}
+
+.sidebar {
+  width: calc(var(--scale) * 22px);
+  background: linear-gradient(to bottom, #1084d0 0%, #000080 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: calc(var(--scale) * 8px);
+}
+
+.sidebar-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-family);
+  font-size: calc(var(--scale) * 14px);
+  user-select: none;
+
+  .sidebar-windows {
+    color: var(--silver);
+    font-weight: normal;
+  }
+
+  .sidebar-version {
+    color: var(--white);
+    font-weight: bold;
+  }
+}

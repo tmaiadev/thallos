@@ -32,17 +32,20 @@ describe("TitleBar", () => {
 
   it("renders title as a heading", () => {
     renderTitleBar("My Window");
-    expect(screen.getByRole("heading", { name: "My Window" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "My Window" }))
+      .toBeInTheDocument();
   });
 
   it("renders Window Controls", () => {
     renderTitleBar();
-    expect(screen.getByRole("group", { name: "Window Controls" })).toBeInTheDocument();
+    const controls = screen.getByRole("group", { name: "Window Controls" });
+    expect(controls).toBeInTheDocument();
   });
 
   it("renders minimize button", () => {
     renderTitleBar();
-    expect(screen.getByRole("button", { name: "Minimize" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Minimize" }))
+      .toBeInTheDocument();
   });
 
   it("applies title-bar class", () => {
@@ -74,7 +77,8 @@ describe("TitleBar", () => {
     fireEvent.click(titleBar);
     fireEvent.click(titleBar);
 
-    expect(screen.getByRole("button", { name: "Maximize" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Maximize" }))
+      .toBeInTheDocument();
   });
 
   it("registers and removes drag event listeners", () => {

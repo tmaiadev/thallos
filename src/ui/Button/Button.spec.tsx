@@ -46,7 +46,8 @@ describe("Button", () => {
 
   it("forwards additional HTML attributes", () => {
     render(<Button aria-label="test-btn">Click</Button>);
-    expect(screen.getByRole("button", { name: "test-btn" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "test-btn" }))
+      .toBeInTheDocument();
   });
 
   it("renders content wrapper div", () => {

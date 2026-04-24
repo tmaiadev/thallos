@@ -14,15 +14,15 @@
     padding: calc(var(--scale) * 4px) calc(var(--scale) * 8px);
   }
 
-  &:focus-within {
-    .content {
-      outline-style: dotted;
-    }
-  }
-
   .content {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &:focus-within {
+    .content {
+      outline-style: dotted;
+    }
   }
 }

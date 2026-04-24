@@ -1,0 +1,14 @@
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--scale) * 8px);
+  padding: calc(var(--scale) * 3px) calc(var(--scale) * 16px) calc(var(--scale) * 3px) calc(var(--scale) * 8px);
+  cursor: default;
+  color: var(--foreground);
+  white-space: nowrap;
+
+  &.is-active {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
