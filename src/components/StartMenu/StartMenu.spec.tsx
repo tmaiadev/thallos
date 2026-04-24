@@ -129,9 +129,9 @@ describe("StartMenu", () => {
     expect(container.querySelector(".sidebar")).toBeInTheDocument();
   });
 
-  it("renders start-menu container", () => {
+  it("renders popup container", () => {
     const { container } = render(<StartMenu />);
-    expect(container.querySelector(".start-menu")).toBeInTheDocument();
+    expect(container.querySelector(".popup")).toBeInTheDocument();
   });
 
   it("resets active index when menu is reopened", async () => {

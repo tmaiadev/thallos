@@ -1,6 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Dialog from "./Dialog";
 import Provider from "./Provider";
+import WindowControls from "./WindowControls";
 
 function renderDialog(
   props: Partial<React.HTMLAttributes<HTMLDialogElement>> = {},
@@ -50,5 +51,16 @@ describe("Dialog", () => {
       "aria-describedby",
       "test-dialog-title"
     );
+  });
+
+  it("applies is-maximized class when maximized", () => {
+    render(
+      <Provider>
+        <Dialog id="test-dialog">content</Dialog>
+        <WindowControls />
+      </Provider>
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Maximize" }));
+    expect(screen.getByRole("dialog")).toHaveClass("is-maximized");
   });
 });

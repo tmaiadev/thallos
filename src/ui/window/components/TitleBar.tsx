@@ -13,6 +13,7 @@ export default function TitleBar({
     const titleBar = titleBarRef.current;
     const dialog = document.getElementById(id) as HTMLDialogElement;
 
+    /* v8 ignore next */
     if (!titleBar) return;
 
     const set = (prop: string, value: number) =>
@@ -61,6 +62,7 @@ export default function TitleBar({
   useEffect(() => {
     const titleBar = titleBarRef.current;
 
+    /* v8 ignore next */
     if (!titleBar) return;
 
     let lastClick = 0;

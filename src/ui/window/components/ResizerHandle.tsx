@@ -10,6 +10,7 @@ export default function ResizerHandle({ id, type }: ResizerHandleProps) {
     const handle = handleRef.current;
     const dialog = document.getElementById(id) as HTMLDialogElement;
 
+    /* v8 ignore next */
     if (!handle) return;
 
     const affects = (side: string) => type.includes(side);

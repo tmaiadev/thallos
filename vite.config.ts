@@ -4,16 +4,18 @@ import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import babel from "@rolldown/plugin-babel";
 import path from "path";
 
+const isTest = process.env.NODE_ENV === "test";
+
 export default defineConfig({
   plugins: [
     react(),
-    babel({
+    ...(!isTest ? [babel({
       presets: [reactCompilerPreset()],
       plugins: [[
         "@babel/plugin-proposal-optional-chaining-assign",
         { version: "2023-07" },
       ]],
-    })
+    })] : []),
   ],
   resolve: {
     alias: {

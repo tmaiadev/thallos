@@ -189,7 +189,23 @@ describe("Menu", () => {
         <MenuItem>Item</MenuItem>
       </Menu>
     );
-    expect(screen.getByRole("menu", { name: "Test menu" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("menu", { name: "Test menu" })
+    ).toBeInTheDocument();
+  });
+
+  it("calls onKeyDown when a key is pressed", async () => {
+    const user = userEvent.setup();
+    const onKeyDown = vi.fn();
+    render(
+      <Menu orientation="vertical" onKeyDown={onKeyDown}>
+        <MenuItem>Item</MenuItem>
+      </Menu>
+    );
+    const menu = screen.getByRole("menu");
+    menu.focus();
+    await user.keyboard("{ArrowDown}");
+    expect(onKeyDown).toHaveBeenCalledTimes(1);
   });
 
   it("calls item onSelect when item is clicked", async () => {
@@ -204,6 +220,25 @@ describe("Menu", () => {
     await user.click(screen.getByText("Programs"));
 
     expect(onSelect).toHaveBeenCalledTimes(1);
+  });
+
+  it("sets active item on mouse hover", async () => {
+    const user = userEvent.setup();
+    renderMenu();
+    const items = screen.getAllByRole("menuitem");
+    await user.hover(items[2]);
+    expect(items[2]).toHaveClass("is-active");
+    expect(items[0]).not.toHaveClass("is-active");
+  });
+
+  it("ignores unhandled key presses", async () => {
+    const user = userEvent.setup();
+    renderMenu();
+    const menu = screen.getByRole("menu");
+    menu.focus();
+    await user.keyboard("x");
+    const items = screen.getAllByRole("menuitem");
+    expect(items[0]).toHaveClass("is-active");
   });
 
   it("does not navigate with arrow keys if no items", () => {
@@ -264,6 +299,18 @@ describe("MenuItem", () => {
     );
     const item = screen.getByRole("menuitem", { name: "programs-item" });
     expect(item).toBeInTheDocument();
+  });
+
+  it("calls onClick when clicked", async () => {
+    const user = userEvent.setup();
+    const onClick = vi.fn();
+    render(
+      <ul role="menu">
+        <MenuItem onClick={onClick}>Programs</MenuItem>
+      </ul>
+    );
+    await user.click(screen.getByRole("menuitem"));
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });
 

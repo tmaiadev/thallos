@@ -1,0 +1,50 @@
+.popup {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.content {
+  position: absolute;
+  z-index: 1000;
+}
+
+.content[data-position="top span-right"] {
+  bottom: calc(100% + calc(var(--scale) * 2px));
+  left: 0;
+}
+
+.content[data-position="top span-left"] {
+  bottom: calc(100% + calc(var(--scale) * 2px));
+  right: 0;
+}
+
+.content[data-position="bottom span-right"] {
+  top: calc(100% + calc(var(--scale) * 2px));
+  left: 0;
+}
+
+.content[data-position="bottom span-left"] {
+  top: calc(100% + calc(var(--scale) * 2px));
+  right: 0;
+}
+
+.content[data-position="left span-top"] {
+  right: calc(100% + calc(var(--scale) * 2px));
+  top: 0;
+}
+
+.content[data-position="left span-bottom"] {
+  right: calc(100% + calc(var(--scale) * 2px));
+  bottom: 0;
+}
+
+.content[data-position="right span-top"] {
+  left: calc(100% + calc(var(--scale) * 2px));
+  top: 0;
+}
+
+.content[data-position="right span-bottom"] {
+  left: calc(100% + calc(var(--scale) * 2px));
+  bottom: 0;
+}

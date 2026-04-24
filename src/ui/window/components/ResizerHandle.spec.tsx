@@ -62,6 +62,51 @@ describe("ResizerHandle", () => {
     spy.mockRestore();
   });
 
+  it("resizes top edge on drag", () => {
+    const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement;
+    const { container } = renderHandle("top");
+    const handle = container.firstChild as HTMLElement;
+
+    fireEvent.mouseDown(handle, { screenX: 0, screenY: 50 });
+    fireEvent.mouseMove(document.body, { screenX: 0, screenY: 30 });
+    fireEvent.mouseUp(document.body);
+
+    expect(dialog.style.getPropertyValue("--h")).not.toBe("");
+  });
+
+  it("resizes right edge on drag", () => {
+    const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement;
+    const { container } = renderHandle("right");
+    const handle = container.firstChild as HTMLElement;
+
+    fireEvent.mouseDown(handle, { screenX: 0, screenY: 0 });
+    fireEvent.mouseMove(document.body, { screenX: 80, screenY: 0 });
+    fireEvent.mouseUp(document.body);
+
+    expect(dialog.style.getPropertyValue("--w")).not.toBe("");
+  });
+
+  it("resizes left edge on drag", () => {
+    const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement;
+    const { container } = renderHandle("left");
+    const handle = container.firstChild as HTMLElement;
+
+    fireEvent.mouseDown(handle, { screenX: 80, screenY: 0 });
+    fireEvent.mouseMove(document.body, { screenX: 40, screenY: 0 });
+    fireEvent.mouseUp(document.body);
+
+    expect(dialog.style.getPropertyValue("--w")).not.toBe("");
+  });
+
+  it("does not update drag when mouseup fires without drag start", () => {
+    const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement;
+    renderHandle("bottom");
+
+    fireEvent.mouseUp(document.body);
+
+    expect(dialog.style.getPropertyValue("--h")).toBe("");
+  });
+
   it("does not resize when drag is not active", () => {
     const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement;
     renderHandle("bottom");

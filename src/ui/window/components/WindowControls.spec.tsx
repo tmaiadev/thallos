@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import WindowControls from "./WindowControls";
 import Provider from "./Provider";
+import Dialog from "./Dialog";
 
 function renderControls() {
   return render(
@@ -54,9 +55,9 @@ describe("WindowControls", () => {
   it("clicking Minimize hides the dialog", () => {
     render(
       <Provider>
-        <dialog id="test" open>
+        <Dialog id="test">
           <WindowControls />
-        </dialog>
+        </Dialog>
       </Provider>
     );
     fireEvent.click(screen.getByRole("button", { name: "Minimize" }));

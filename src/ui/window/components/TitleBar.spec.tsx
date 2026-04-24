@@ -81,6 +81,28 @@ describe("TitleBar", () => {
       .toBeInTheDocument();
   });
 
+  it("drags dialog on mousedown + mousemove", () => {
+    renderTitleBar();
+    const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement;
+    const titleBar = document.querySelector(".title-bar") as HTMLElement;
+
+    fireEvent.mouseDown(titleBar, { screenX: 0, screenY: 0 });
+    fireEvent.mouseMove(document.body, { screenX: 50, screenY: 30 });
+    fireEvent.mouseUp(document.body);
+
+    expect(dialog.style.getPropertyValue("--x")).not.toBe("");
+    expect(dialog.style.getPropertyValue("--y")).not.toBe("");
+  });
+
+  it("does not move dialog on mousemove without mousedown", () => {
+    renderTitleBar();
+    const dialog = document.getElementById(DIALOG_ID) as HTMLDialogElement;
+
+    fireEvent.mouseMove(document.body, { screenX: 50, screenY: 30 });
+
+    expect(dialog.style.getPropertyValue("--x")).toBe("");
+  });
+
   it("registers and removes drag event listeners", () => {
     const addSpy = vi.spyOn(document.body, "addEventListener");
     const removeSpy = vi.spyOn(document.body, "removeEventListener");

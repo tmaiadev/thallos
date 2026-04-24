@@ -7,6 +7,7 @@ export default function SystemTray() {
   useEffect(() => {
     const clock = clockRef.current;
 
+    /* v8 ignore next */
     if (!clock) return;
 
     function removeSecs(time: string) {
