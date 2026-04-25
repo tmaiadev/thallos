@@ -1,6 +1,7 @@
 .menu-item {
   display: flex;
   align-items: center;
+  outline: none;
   gap: calc(var(--scale) * 8px);
   padding: calc(var(--scale) * 3px) calc(var(--scale) * 16px) calc(var(--scale) * 3px) calc(var(--scale) * 8px);
   cursor: default;
