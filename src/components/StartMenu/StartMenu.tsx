@@ -1,6 +1,5 @@
 import { useRef, useEffect } from "react";
 import Button from "@/ui/Button";
-import Icon from "@/ui/Icon";
 import Menu, { MenuItem, MenuDivider } from "@/ui/Menu";
 import Popup, { usePopup } from "@/ui/Popup";
 import styles from "./StartMenu.module.css";
@@ -27,31 +26,11 @@ function StartMenuContent() {
         onClose={close}
         aria-label="Start menu"
       >
-        <MenuItem>
-          <Icon type="appwizard-0" size="sm" aria-hidden="true" />
-          Programs
-        </MenuItem>
-        <MenuItem>
-          <Icon
-            type="directory_open_file_mydocs_2k-0"
-            size="sm"
-            aria-hidden="true"
-          />
-          Documents
-        </MenuItem>
-        <MenuItem>
-          <Icon
-            type="settings_gear-0"
-            size="sm"
-            aria-hidden="true"
-          />
-          Settings
-        </MenuItem>
+        <MenuItem icon="appwizard-0">Programs</MenuItem>
+        <MenuItem icon="directory_open_file_mydocs_2k-0">Documents</MenuItem>
+        <MenuItem icon="settings_gear-0">Settings</MenuItem>
         <MenuDivider />
-        <MenuItem>
-          <Icon type="keys-0" size="sm" aria-hidden="true" />
-          Session
-        </MenuItem>
+        <MenuItem icon="keys-0">Session</MenuItem>
       </Menu>
     </div>
   );

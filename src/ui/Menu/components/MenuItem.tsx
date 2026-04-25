@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/utils/cn";
+import Icon from "@/ui/Icon";
 import styles from "./MenuItem.module.css";
 import type { MenuItemProps } from "../Menu.types";
 
@@ -7,6 +8,7 @@ export default function MenuItem({
   children,
   className,
   active,
+  icon,
   onSelect,
   onClick,
   ref,
@@ -30,6 +32,7 @@ export default function MenuItem({
       onClick={handleClick}
       {...props}
     >
+      {icon && <Icon type={icon} size="sm" aria-hidden />}
       {children}
     </li>
   );
