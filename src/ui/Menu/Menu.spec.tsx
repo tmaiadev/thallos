@@ -312,6 +312,67 @@ describe("MenuItem", () => {
     await user.click(screen.getByRole("menuitem"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+
+  it("renders an icon when icon prop is provided", () => {
+    const { container } = render(
+      <ul role="menu">
+        <MenuItem icon="appwizard-0">Programs</MenuItem>
+      </ul>
+    );
+    expect(container.querySelector("img")).toBeInTheDocument();
+  });
+
+  it("does not render an icon when icon prop is absent", () => {
+    const { container } = render(
+      <ul role="menu">
+        <MenuItem>Programs</MenuItem>
+      </ul>
+    );
+    expect(container.querySelector("img")).not.toBeInTheDocument();
+  });
+
+  it("sets icon src from icon prop", () => {
+    const { container } = render(
+      <ul role="menu">
+        <MenuItem icon="appwizard-0">Programs</MenuItem>
+      </ul>
+    );
+    expect(container.querySelector("img")).toHaveAttribute(
+      "src",
+      "/icons/appwizard-0.png"
+    );
+  });
+
+  it("renders icon with sm size class", () => {
+    const { container } = render(
+      <ul role="menu">
+        <MenuItem icon="appwizard-0">Programs</MenuItem>
+      </ul>
+    );
+    expect(container.querySelector("img")).toHaveClass("sm");
+  });
+
+  it("renders icon with aria-hidden", () => {
+    const { container } = render(
+      <ul role="menu">
+        <MenuItem icon="appwizard-0">Programs</MenuItem>
+      </ul>
+    );
+    expect(container.querySelector("img")).toHaveAttribute(
+      "aria-hidden",
+      "true"
+    );
+  });
+
+  it("renders icon before children", () => {
+    const { container } = render(
+      <ul role="menu">
+        <MenuItem icon="appwizard-0">Programs</MenuItem>
+      </ul>
+    );
+    const item = container.querySelector("li")!;
+    expect(item.firstElementChild?.tagName).toBe("IMG");
+  });
 });
 
 describe("MenuDivider", () => {

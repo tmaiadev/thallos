@@ -134,6 +134,46 @@ describe("StartMenu", () => {
     expect(container.querySelector(".popup")).toBeInTheDocument();
   });
 
+  it("renders an icon for each menu item when open", async () => {
+    const user = userEvent.setup();
+    const { container } = render(<StartMenu />);
+
+    await user.click(screen.getByRole("button", { name: /start/i }));
+
+    const items = screen.getAllByRole("menuitem");
+    items.forEach((item) => {
+      expect(item.querySelector("img")).toBeInTheDocument();
+    });
+  });
+
+  it("renders menu item icons as aria-hidden when open", async () => {
+    const user = userEvent.setup();
+    const { container } = render(<StartMenu />);
+
+    await user.click(screen.getByRole("button", { name: /start/i }));
+
+    const icons = container.querySelectorAll('[role="menuitem"] img');
+    icons.forEach((icon) => {
+      expect(icon).toHaveAttribute("aria-hidden", "true");
+    });
+  });
+
+  it("renders correct icon srcs for all menu items when open", async () => {
+    const user = userEvent.setup();
+    const { container } = render(<StartMenu />);
+
+    await user.click(screen.getByRole("button", { name: /start/i }));
+
+    const icons = container.querySelectorAll('[role="menuitem"] img');
+    const srcs = Array.from(icons).map((img) => img.getAttribute("src"));
+    expect(srcs).toEqual([
+      "/icons/appwizard-0.png",
+      "/icons/directory_open_file_mydocs_2k-0.png",
+      "/icons/settings_gear-0.png",
+      "/icons/keys-0.png",
+    ]);
+  });
+
   it("resets active index when menu is reopened", async () => {
     const user = userEvent.setup();
     render(<StartMenu />);
