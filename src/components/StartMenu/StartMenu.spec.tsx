@@ -69,14 +69,14 @@ describe("StartMenu", () => {
     expect(screen.getByRole("separator")).toBeInTheDocument();
   });
 
-  it("focuses the menu when it opens", async () => {
+  it("focuses the first menu item when it opens", async () => {
     const user = userEvent.setup();
     render(<StartMenu />);
 
     await user.click(screen.getByRole("button", { name: /start/i }));
 
     await waitFor(() => {
-      expect(document.activeElement).toBe(screen.getByRole("menu"));
+      expect(document.activeElement).toBe(screen.getAllByRole("menuitem")[0]);
     });
   });
 

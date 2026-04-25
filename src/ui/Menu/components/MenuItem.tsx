@@ -4,7 +4,7 @@ import Icon from "@/ui/Icon";
 import styles from "./MenuItem.module.css";
 import type { MenuItemProps } from "../Menu.types";
 
-export default function MenuItem({
+function MenuItem({
   children,
   className,
   active,
@@ -37,3 +37,6 @@ export default function MenuItem({
     </li>
   );
 }
+
+MenuItem.__isMenuItem = true;
+export default MenuItem;
