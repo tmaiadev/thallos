@@ -16,4 +16,11 @@ export interface MenuItemProps extends React.HTMLAttributes<HTMLLIElement> {
   onSelect?: () => void;
 }
 
+export interface SubMenuItemProps extends React.HTMLAttributes<HTMLLIElement> {
+  label: React.ReactNode;
+  icon?: IconType;
+  active?: boolean;
+  children: React.ReactNode;
+}
+
 export type MenuDividerProps = React.HTMLAttributes<HTMLLIElement>;

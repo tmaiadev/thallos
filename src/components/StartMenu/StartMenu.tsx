@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import Button from "@/ui/Button";
-import Menu, { MenuItem, MenuDivider } from "@/ui/Menu";
+import Menu, { MenuItem, MenuDivider, SubMenuItem } from "@/ui/Menu";
 import Popup, { usePopup } from "@/ui/Popup";
 import styles from "./StartMenu.module.css";
 
@@ -28,7 +28,10 @@ function StartMenuContent() {
       >
         <MenuItem icon="appwizard-0">Programs</MenuItem>
         <MenuItem icon="directory_open_file_mydocs_2k-0">Documents</MenuItem>
-        <MenuItem icon="settings_gear-0">Settings</MenuItem>
+        <SubMenuItem icon="settings_gear-0" label="Settings">
+          <MenuItem icon="user_computer_pair-1">Account</MenuItem>
+          <MenuItem icon="monitor_blue_grad-0">Appearance</MenuItem>
+        </SubMenuItem>
         <MenuDivider />
         <MenuItem icon="keys-0">Session</MenuItem>
       </Menu>

@@ -1,0 +1,28 @@
+.sub-menu-item {
+  display: flex;
+  align-items: center;
+  outline: none;
+  gap: calc(var(--scale) * 8px);
+  padding: calc(var(--scale) * 3px) calc(var(--scale) * 16px) calc(var(--scale) * 3px) calc(var(--scale) * 8px);
+  cursor: default;
+  color: var(--foreground);
+  white-space: nowrap;
+  position: relative;
+
+  &.is-active {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 0.6em;
+  padding-left: calc(var(--scale) * 8px);
+}
+
+.submenu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
