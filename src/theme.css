@@ -42,12 +42,11 @@
   }
 
   * {
-    margin: 0;
     box-sizing: border-box;
     border-color: var(--white);
 
     :focus {
-      outline-style: dotted;
+      outline-style: none;
       outline-offset: -2px;
       outline-color: var(--gray);
     }
