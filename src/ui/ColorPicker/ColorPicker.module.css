@@ -1,0 +1,30 @@
+.picker {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--scale) * 6px);
+  cursor: pointer;
+  user-select: none;
+
+  .input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .swatch {
+    width: calc(var(--scale) * 20px);
+    height: calc(var(--scale) * 20px);
+    flex-shrink: 0;
+    border: calc(var(--scale) * 2px);
+    border-style: inset;
+  }
+
+  .hex {
+    font-family: var(--font-family);
+    font-size: calc(var(--scale) * 12px);
+    color: var(--foreground);
+    text-transform: uppercase;
+  }
+}
