@@ -12,8 +12,8 @@
   font-style: normal;
 }
 
-.thallos {
-  --font-family: 'MSW98', sans-serif;
+:root {
+   --font-family: 'MSW98', sans-serif;
   --white: #FFF;
   --black: #000;
   --navy: #000080;
@@ -30,29 +30,31 @@
   --content: var(--white);
   --content-foreground: var(--black);
   --scale: 1;
+}
+body {
+  margin: 0;
+  width: 100dvw;
+  height: 100dvh;
 
   background-color: var(--cyan);
   font-family: var(--font-family);
   font-size: calc(12px * var(--scale));
+}
 
-  &:is(body) {
-    margin: 0;
-    width: 100dvw;
-    height: 100dvh;
+* {
+  box-sizing: border-box;
+  border-color: lighten(var(--background), 10);
+  padding: 0;
+  margin: 0;
+  font-size: calc(var(--scale) * 12px);
+
+  :focus {
+    outline-style: none;
+    outline-offset: -2px;
+    outline-color: var(--gray);
   }
-
-  * {
-    box-sizing: border-box;
-    border-color: var(--white);
-
-    :focus {
-      outline-style: none;
-      outline-offset: -2px;
-      outline-color: var(--gray);
-    }
-  }
-
-  ::selection {
+  
+  :selection {
     background-color: transparent;
     color: inherit;
   }
