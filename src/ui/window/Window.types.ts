@@ -27,4 +27,5 @@ export interface WindowProps extends React.HTMLAttributes<HTMLDialogElement> {
   title: string;
   ref?: React.Ref<HTMLDialogElement>;
   children: React.ReactNode;
+  onClose?: () => void;
 }

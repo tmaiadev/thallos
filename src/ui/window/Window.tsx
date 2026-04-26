@@ -10,6 +10,7 @@ export default function Window({
   title,
   ref,
   className,
+  onClose,
   children,
   ...props
 }: WindowProps) {
@@ -20,7 +21,7 @@ export default function Window({
       className={className}
       {...props}
     >
-      <TitleBar id={id}>{title}</TitleBar>
+      <TitleBar id={id} onClose={onClose}>{title}</TitleBar>
       <div className={styles.content}>
         {children}
       </div>

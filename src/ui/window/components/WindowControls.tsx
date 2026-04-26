@@ -4,7 +4,7 @@ import Button from "@/ui/Button";
 import Icon from "./Icon";
 import styles from "./WindowControls.module.css";
 
-export default function WindowControls() {
+export default function WindowControls({ onClose }: { onClose?: () => void }) {
   const { state, setState } = useContext(Context);
 
   return (
@@ -38,7 +38,7 @@ export default function WindowControls() {
           <Icon type="restore" />
         </Button>
       )}
-      <Button className={styles.button} aria-label="Close">
+      <Button className={styles.button} aria-label="Close" onClick={onClose}>
         <Icon type="close" />
       </Button>
     </div>

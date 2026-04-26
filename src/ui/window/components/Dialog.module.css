@@ -15,6 +15,7 @@
   border: calc(2px * var(--scale));
   border-style: outset;
   position: fixed;
+  padding: 0;
   left: var(--x);
   top: var(--y);
 

@@ -4,8 +4,8 @@ import WindowControls from "./WindowControls";
 import styles from "./TitleBar.module.css";
 
 export default function TitleBar({
-  id, children,
-}: { id: string, children: React.ReactNode }) {
+  id, onClose, children,
+}: { id: string, onClose?: () => void, children: React.ReactNode }) {
   const { state, setState } = useContext(Context);
   const titleBarRef = useRef<HTMLDivElement>(null);
 
@@ -88,7 +88,7 @@ export default function TitleBar({
           {children}
         </h2>
       </div>
-      <WindowControls />
+      <WindowControls onClose={onClose} />
     </div>
   );
 }
