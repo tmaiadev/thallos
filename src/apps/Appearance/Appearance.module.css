@@ -1,0 +1,35 @@
+.app {
+  width: calc(var(--scale) * 320px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--scale) * 12px);
+  padding: calc(var(--scale) * 12px);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--scale) * 4px);
+
+  .label {
+    font-size: calc(var(--scale) * 12px);
+    color: var(--foreground);
+  }
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: calc(var(--scale) * 6px);
+  padding: calc(var(--scale) * 8px) calc(var(--scale) * 12px);
+  border-top: calc(var(--scale) * 1px) solid var(--gray);
+}
