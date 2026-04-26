@@ -1,5 +1,10 @@
 import Workspace from "@/components/Workspace";
+import { RunningAppsProvider } from "@/contexts/RunningApps";
 
 export default function ThallOS() {
-  return <Workspace />;
+  return (
+    <RunningAppsProvider>
+      <Workspace />
+    </RunningAppsProvider>
+  );
 }

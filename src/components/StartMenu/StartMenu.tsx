@@ -2,11 +2,13 @@ import { useRef, useEffect } from "react";
 import Button from "@/ui/Button";
 import Menu, { MenuItem, MenuDivider, SubMenuItem } from "@/ui/Menu";
 import Popup, { usePopup } from "@/ui/Popup";
+import { useRunningApps } from "@/contexts/RunningApps";
 import styles from "./StartMenu.module.css";
 
 function StartMenuContent() {
   const menuRef = useRef<HTMLUListElement>(null);
   const { close } = usePopup();
+  const { launch } = useRunningApps();
 
   useEffect(() => {
     menuRef.current?.focus();
@@ -30,7 +32,12 @@ function StartMenuContent() {
         <MenuItem icon="directory_open_file_mydocs_2k-0">Documents</MenuItem>
         <SubMenuItem icon="settings_gear-0" label="Settings">
           <MenuItem icon="user_computer_pair-1">Account</MenuItem>
-          <MenuItem icon="monitor_blue_grad-0">Appearance</MenuItem>
+          <MenuItem
+            icon="monitor_blue_grad-0"
+            onClick={() => { launch("appearance"); close(); }}
+          >
+            Appearance
+          </MenuItem>
         </SubMenuItem>
         <MenuDivider />
         <MenuItem icon="keys-0">Session</MenuItem>
