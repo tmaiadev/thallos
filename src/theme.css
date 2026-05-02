@@ -17,3 +17,44 @@
   font-style: normal;
   font-display: swap;
 }
+
+@layer reset, theme;
+
+@layer theme {
+  .thallos {
+    /* Colors */
+    --black: #222222;
+    --blue: #0000ff;
+    --gray: #808080;
+    --navy: #000080;
+    --silver: #c0c0c0;
+    --teal: #1084d0;
+    --white: #ffffff;
+  }
+}
+
+@layer reset {
+  .thallos,
+  .thallos * {
+    appearance: none;
+    background: transparent;
+    border-color: var(--white);
+    border-style: none;
+    border: 0;
+    color: inherit;
+    display: flex;
+    font-family: "MS Sans Serif";
+    font-size: 14px;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: 18px;
+    list-style: none;
+    margin: 0;
+    min-width: 0px;
+
+    &::selection {
+      background-color: transparent;
+      color: inherit;
+    }
+  }
+}
