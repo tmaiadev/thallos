@@ -1,6 +1,7 @@
 import { defineConfig } from "vitest/config";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import babel from "@rolldown/plugin-babel";
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -8,6 +9,14 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      "@ui": path.resolve(__dirname, "src/components/ui"),
+      "@system": path.resolve(__dirname, "src/components/system"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+    },
+  },
   test: {
     environment: "jsdom",
     globals: true,
