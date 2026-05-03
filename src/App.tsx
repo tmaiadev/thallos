@@ -1,4 +1,4 @@
-import Button from "./ui/button"
+import Button from "./ui/button";
 
 function App() {
   return <>
@@ -7,7 +7,7 @@ function App() {
     <h3>Button</h3>
     <Button>OK</Button>
     <Button disabled>Disabled</Button>
-  </>
+  </>;
 }
 
-export default App
+export default App;

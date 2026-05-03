@@ -21,18 +21,17 @@
 @layer theme {
   .thallos {
     /* Basic Colors */
-    --black: #222222;
-    --blue: #0000ff;
+    --black: #222;
+    --blue: #00f;
     --gray: #808080;
     --navy: #000080;
     --silver: #c0c0c0;
     --teal: #1084d0;
-    --white: #ffffff;
+    --white: #fff;
 
     /* System Colors */
     --background: var(--silver);
     --foreground: var(--black);
-
     --primary: var(--navy);
     --primary-foreground: var(--black);
 
@@ -58,13 +57,13 @@
     border-color: var(--white);
     color: inherit;
     display: inline-block;
-    font-family: "MS Sans Serif";
+    font-family: "MS Sans Serif", sans-serif;
     font-size: var(--font-size);
     font-weight: normal;
     line-height: 16px;
     list-style: none;
     margin: 0;
-    min-width: 0px;
+    min-width: 0;
     outline: none;
     padding: 0;
 
