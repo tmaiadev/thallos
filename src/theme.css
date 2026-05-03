@@ -34,6 +34,9 @@
     --foreground: var(--black);
     --primary: var(--navy);
     --primary-foreground: var(--black);
+    --field-foreground: var(--black);
+    --field-background: var(--white);
+    --muted: var(--gray);
 
     /* Sizes */
     --font-size: 12px;
@@ -46,6 +49,10 @@
     /* Styles */
     font-size: var(--font-size);
     line-height: var(--line-height);
+
+    b {
+      font-weight: bold;
+    }
   }
 }
 
@@ -54,6 +61,7 @@
   .thallos * {
     appearance: none;
     background: transparent;
+    box-sizing: border-box;
     border-color: var(--white);
     color: inherit;
     display: inline-block;
@@ -66,6 +74,7 @@
     min-width: 0;
     outline: none;
     padding: 0;
+    white-space: nowrap;
 
     &::selection {
       background-color: transparent;
