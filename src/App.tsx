@@ -1,13 +1,7 @@
-import Button from "./ui/button";
+import { DesignSystem } from "./components/system/design-system/DesignSystem";
 
 function App() {
-  return <>
-    <h1>Thall<b>OS</b></h1>
-    <h2>Components</h2>
-    <h3>Button</h3>
-    <Button>OK</Button>
-    <Button disabled>Disabled</Button>
-  </>;
+  return <DesignSystem />;
 }
 
 export default App;
