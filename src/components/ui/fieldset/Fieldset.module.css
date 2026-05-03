@@ -2,6 +2,9 @@
   .fieldset {
     border-style: groove;
     border-width: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     padding: 8px 12px;
 
     &:disabled {
