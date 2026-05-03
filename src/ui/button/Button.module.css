@@ -1,0 +1,26 @@
+@layer component {
+    .button {
+        color: var(--foreground);
+        background-color: var(--background);
+        padding: 0px 8px;
+        border-style: outset;
+        min-height: 24px;
+
+        &:focus:not(:active) {
+            outline-width: 1px;
+            outline-offset: -4px;
+            outline-style: dotted;
+            outline-color: var(--foreground);
+        }
+
+        &:active {
+            border-style: inset;
+        }
+
+        &:disabled {
+            pointer-events: none;
+            color: var(--disabled-text-color);
+            text-shadow: var(--disabled-text-shadow);
+        }
+    }
+}
