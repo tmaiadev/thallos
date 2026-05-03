@@ -1,0 +1,56 @@
+@layer component {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .label {
+    color: var(--foreground);
+    font-size: var(--font-size);
+  }
+
+  .input {
+    background-color: var(--field-background);
+    color: var(--field-foreground);
+    border: 2px inset;
+    padding: 2px 4px;
+    font-size: var(--font-size);
+    outline: none;
+    width: 100%;
+
+    &::selection {
+      color: var(--primary-foreground);
+      background-color: var(--primary);
+    }
+
+    &:disabled,
+    &[readonly] {
+      color: var(--disabled-text-color);
+      text-shadow: var(--disabled-text-shadow);
+      background-color: var(--background);
+    }
+  }
+
+  .inline {
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+
+    .label {
+      width: 100px;
+      flex-shrink: 0;
+      text-align: end;
+    }
+
+    .input {
+      flex: 1;
+      width: auto;
+    }
+  }
+
+  .wrapper:has(.input:disabled, .input[readonly]) .label {
+    color: var(--disabled-text-color);
+    text-shadow: var(--disabled-text-shadow);
+  }
+}
