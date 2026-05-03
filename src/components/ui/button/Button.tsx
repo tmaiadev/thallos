@@ -1,6 +1,6 @@
 import type { ButtonProps } from "./Button.types";
 import styles from "./Button.module.css";
-import { cn } from "../../utils/cn";
+import { cn } from "../../../utils/cn";
 
 export function Button({ children, className, ref, ...props }: ButtonProps) {
   return (
