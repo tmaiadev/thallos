@@ -1,0 +1,17 @@
+@layer component {
+  .fieldset {
+    border-style: groove;
+    border-width: 3px;
+    padding: 8px 12px;
+
+    &:disabled {
+      color: var(--disabled-text-color);
+      text-shadow: var(--disabled-text-shadow);
+    }
+  }
+
+  .legend {
+    padding: 0 4px;
+    color: var(--foreground);
+  }
+}
