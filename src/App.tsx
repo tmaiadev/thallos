@@ -1,7 +1,7 @@
 import { DesignSystem } from "./components/system/design-system/DesignSystem";
 
 function App() {
-  return <DesignSystem />;
+  return <div className="thallos"><DesignSystem /></div>;
 }
 
 export default App;
