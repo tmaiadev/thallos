@@ -18,11 +18,9 @@
   font-display: swap;
 }
 
-@layer reset, theme;
-
 @layer theme {
   .thallos {
-    /* Colors */
+    /* Basic Colors */
     --black: #222222;
     --blue: #0000ff;
     --gray: #808080;
@@ -30,6 +28,25 @@
     --silver: #c0c0c0;
     --teal: #1084d0;
     --white: #ffffff;
+
+    /* System Colors */
+    --background: var(--silver);
+    --foreground: var(--black);
+
+    --primary: var(--navy);
+    --primary-foreground: var(--black);
+
+    /* Sizes */
+    --font-size: 12px;
+    --line-height: 1.5rem;
+
+    /* System */
+    --disabled-text-color: var(--gray);
+    --disabled-text-shadow: 1px 1px 1px var(--white);
+
+    /* Styles */
+    font-size: var(--font-size);
+    line-height: var(--line-height);
   }
 }
 
@@ -39,18 +56,17 @@
     appearance: none;
     background: transparent;
     border-color: var(--white);
-    border-style: none;
-    border: 0;
     color: inherit;
-    display: flex;
+    display: inline-block;
     font-family: "MS Sans Serif";
-    font-size: 14px;
-    font-size: inherit;
+    font-size: var(--font-size);
     font-weight: normal;
-    line-height: 18px;
+    line-height: 16px;
     list-style: none;
     margin: 0;
     min-width: 0px;
+    outline: none;
+    padding: 0;
 
     &::selection {
       background-color: transparent;
