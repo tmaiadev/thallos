@@ -1,0 +1,11 @@
+@layer component {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    background-color: var(--silver);
+    width: 100dvw;
+    height: 100dvh;
+  }
+}
