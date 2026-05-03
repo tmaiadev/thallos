@@ -33,7 +33,7 @@
     --background: var(--silver);
     --foreground: var(--black);
     --primary: var(--navy);
-    --primary-foreground: var(--black);
+    --primary-foreground: var(--white);
     --field-foreground: var(--black);
     --field-background: var(--white);
     --muted: var(--gray);
