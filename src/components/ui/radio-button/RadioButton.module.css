@@ -1,0 +1,53 @@
+@layer component {
+  .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px;
+
+    &:focus-within {
+      outline: dotted 1px var(--foreground);
+    }
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: inset;
+    color: var(--field-foreground);
+    background-color: var(--field-background);
+
+    &::after {
+      align-items: center;
+      border-color: var(--background);
+      border-radius: 50%;
+      border-style: inset;
+      border-width: 1px;
+      content: ' ';
+      display: flex;
+      font-size: 14px;
+      height: 12px;
+      justify-content: center;
+      width: 12px;
+    }
+
+    &:checked {
+      &::after {
+        content: '●';
+      }
+    }
+
+    &:disabled {
+      color: var(--muted);
+      background-color: var(--background);
+    }
+  }
+
+  .disabled-label {
+    color: var(--disabled-text-color);
+    text-shadow: var(--disabled-text-shadow);
+  }
+}
