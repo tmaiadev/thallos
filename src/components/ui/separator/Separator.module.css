@@ -1,0 +1,31 @@
+@layer component {
+  .separator {
+    border: none;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .horizontal {
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-style: groove;
+    display: block;
+    height: 0;
+    margin: 8px 0;
+    width: 100%;
+  }
+
+  .vertical {
+    align-self: stretch;
+    border-bottom: 0;
+    border-right: 0;
+    border-style: groove;
+    border-top: 0;
+    display: inline-block;
+    height: 100%;
+    margin: 0 4px;
+    min-height: 1ch;
+    width: 1px;
+  }
+}
