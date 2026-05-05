@@ -13,7 +13,7 @@
   .input {
     background-color: var(--field-background);
     color: var(--field-foreground);
-    border: 2px inset;
+    border: 2px inset var(--border-color);
     padding: 2px 4px;
     font-size: var(--font-size);
     outline: none;

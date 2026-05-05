@@ -45,6 +45,7 @@
     /* System */
     --disabled-text-color: var(--gray);
     --disabled-text-shadow: 1px 1px 0px var(--white);
+    --border-color: var(--white);
 
     /* Styles */
     font-size: var(--font-size);
@@ -62,7 +63,7 @@
     appearance: none;
     background: transparent;
     box-sizing: border-box;
-    border-color: var(--white);
+    border-color: var(--border-color);
     color: inherit;
     display: inline-block;
     font-family: "MS Sans Serif", sans-serif;

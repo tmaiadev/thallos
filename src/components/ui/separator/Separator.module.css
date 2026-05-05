@@ -10,6 +10,7 @@
     border-left: 0;
     border-right: 0;
     border-style: groove;
+    border-color: var(--border-color);
     display: block;
     height: 0;
     margin: 8px 0;
