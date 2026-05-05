@@ -5,6 +5,7 @@ import Fieldset from "@/components/ui/fieldset";
 import style from "./DesignSystem.module.css";
 import TextField from "@/components/ui/text-field";
 import Separator from "@/components/ui/separator";
+import Range from "@/components/ui/range";
 
 export function DesignSystem() {
   return (
@@ -28,6 +29,13 @@ export function DesignSystem() {
         <Separator />
         <RadioButton disabled>Disabled radio button</RadioButton>
         <RadioButton defaultChecked disabled>Checked disabled radio button</RadioButton>
+      </Fieldset>
+      <Fieldset legend="Range">
+        <Range label="Range" />
+        <Range label="Volume" prefix="Low" suffix="High" />
+        <Range label="Volume" prefix="Low" suffix="High" disabled />
+        <Separator />
+        <Range label="Inline Range" variant="inline" />
       </Fieldset>
       <Fieldset legend="Input">
         <TextField label="Text Field" variant="inline" />
