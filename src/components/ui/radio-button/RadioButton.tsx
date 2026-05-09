@@ -11,7 +11,7 @@ export function RadioButton({
   ...props
 }: RadioButtonProps) {
   return (
-    <label className={cn(className, styles.wrapper)}>
+    <label className={cn(className, styles.root)}>
       <input
         checked={checked}
         className={styles.input}

@@ -10,15 +10,15 @@ describe("TextField", () => {
     expect(screen.getByRole("textbox")).toBeInTheDocument();
   });
 
-  it("applies the base wrapper class to the label", () => {
+  it("applies the base root class to the label", () => {
     render(<TextField />);
-    expect(screen.getByRole("textbox").closest("label")).toHaveClass("wrapper");
+    expect(screen.getByRole("textbox").closest("label")).toHaveClass("root");
   });
 
   it("merges a custom className with the base class", () => {
     render(<TextField className="custom" />);
     const label = screen.getByRole("textbox").closest("label");
-    expect(label).toHaveClass("wrapper");
+    expect(label).toHaveClass("root");
     expect(label).toHaveClass("custom");
   });
 

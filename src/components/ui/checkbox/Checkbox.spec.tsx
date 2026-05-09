@@ -15,15 +15,15 @@ describe("Checkbox", () => {
     expect(screen.getByRole("checkbox", { name: "Accept terms" })).toBeInTheDocument();
   });
 
-  it("applies the base wrapper class to the label", () => {
+  it("applies the base root class to the label", () => {
     render(<Checkbox />);
-    expect(screen.getByRole("checkbox").closest("label")).toHaveClass("wrapper");
+    expect(screen.getByRole("checkbox").closest("label")).toHaveClass("root");
   });
 
   it("merges a custom className with the base class", () => {
     render(<Checkbox className="custom" />);
     const label = screen.getByRole("checkbox").closest("label");
-    expect(label).toHaveClass("wrapper");
+    expect(label).toHaveClass("root");
     expect(label).toHaveClass("custom");
   });
 

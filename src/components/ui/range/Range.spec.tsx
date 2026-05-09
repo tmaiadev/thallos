@@ -10,15 +10,15 @@ describe("Range", () => {
     expect(screen.getByRole("slider")).toBeInTheDocument();
   });
 
-  it("applies the base wrapper class to the label", () => {
+  it("applies the base root class to the label", () => {
     render(<Range label="Volume" />);
-    expect(screen.getByRole("slider").closest("label")).toHaveClass("wrapper");
+    expect(screen.getByRole("slider").closest("label")).toHaveClass("root");
   });
 
   it("merges a custom className with the base class", () => {
     render(<Range label="Volume" className="custom" />);
     const label = screen.getByRole("slider").closest("label");
-    expect(label).toHaveClass("wrapper");
+    expect(label).toHaveClass("root");
     expect(label).toHaveClass("custom");
   });
 
@@ -58,7 +58,7 @@ describe("Range", () => {
     expect(screen.getByRole("slider")).toBeDisabled();
   });
 
-  it("applies the disabled class to the wrapper label", () => {
+  it("applies the disabled class to the root label", () => {
     render(<Range label="Volume" disabled />);
     expect(screen.getByRole("slider").closest("label")).toHaveClass("is-disabled");
   });

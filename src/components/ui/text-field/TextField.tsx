@@ -12,7 +12,7 @@ export function TextField({
   ...props
 }: TextFieldProps) {
   return (
-    <label className={cn(className, styles.wrapper, variant === "inline" && styles.inline)}>
+    <label className={cn(className, styles.root, variant === "inline" && styles.inline)}>
       {label && <span className={styles.label}>{label}</span>}
       <input
         aria-disabled={disabled}

@@ -15,15 +15,15 @@ describe("RadioButton", () => {
     expect(screen.getByRole("radio", { name: "Option A" })).toBeInTheDocument();
   });
 
-  it("applies the base wrapper class to the label", () => {
+  it("applies the base root class to the label", () => {
     render(<RadioButton />);
-    expect(screen.getByRole("radio").closest("label")).toHaveClass("wrapper");
+    expect(screen.getByRole("radio").closest("label")).toHaveClass("root");
   });
 
   it("merges a custom className with the base class", () => {
     render(<RadioButton className="custom" />);
     const label = screen.getByRole("radio").closest("label");
-    expect(label).toHaveClass("wrapper");
+    expect(label).toHaveClass("root");
     expect(label).toHaveClass("custom");
   });
 
