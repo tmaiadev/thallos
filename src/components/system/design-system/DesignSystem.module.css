@@ -1,9 +1,6 @@
 @layer component {
-  .wrapper {
+  .root {
     background-color: var(--silver);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
     gap: 4px;
     height: 100%;
     left: 0;
@@ -11,5 +8,6 @@
     position: fixed;
     top: 0;
     width: 100%;
+    overflow-y: auto;
   }
 }
