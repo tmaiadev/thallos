@@ -26,5 +26,10 @@ export default defineConfig({
         classNameStrategy: "non-scoped",
       },
     },
+    server: {
+      deps: {
+        inline: ["html-encoding-sniffer", "@exodus/bytes"],
+      },
+    },
   },
 });

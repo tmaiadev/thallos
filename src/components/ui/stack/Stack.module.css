@@ -1,0 +1,44 @@
+@layer component {
+  .stack {
+    --align-content: flex-start;
+    --align-items: stretch;
+    --gap: 0px;
+    --justify-content: flex-start;
+    --wrap: wrap;
+
+    display: flex;
+    flex-direction: column;
+    place-content: var(--align-content) var(--justify-content);
+    align-items: var(--align-items);
+    gap: var(--gap);
+
+    & > * {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    &:not(.is-horizontal).is-reverse {
+      flex-direction: column-reverse;
+    }
+
+    &.is-horizontal {
+      flex-direction: row;
+
+      &.is-reverse {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .stack-item {
+    --align-self: auto;
+    --basis: auto;
+    --grow: 1;
+    --order: 0;
+    --shrink: 1;
+
+    align-self: var(--align-self);
+    flex: var(--grow) var(--shrink) var(--basis);
+    order: var(--order);
+  }
+}
