@@ -1,14 +1,5 @@
 @layer component {
   .root {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-
-    &.is-inline {
-      align-items: center;
-      flex-direction: row;
-    }
-
     &:focus-within {
       outline: var(--foreground) dotted 1px;
       outline-offset: 4px;
@@ -20,21 +11,6 @@
       text-align: end;
       width: 100px;
     }
-  }
-
-  .content {
-    display: flex;
-    align-items: stretch;
-    flex-grow: 1;
-    gap: 4px;
-  }
-
-  .prefix,
-  .suffix {
-    display: flex;
-    align-items: center;
-    width: min-content;
-    flex-grow: 0;
   }
 
   .slider {

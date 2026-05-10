@@ -42,14 +42,14 @@ describe("Range", () => {
   });
 
   // Variant
-  it("defaults to stacked layout — no inline class on label", () => {
+  it("defaults to stacked layout — no horizontal class on label", () => {
     render(<Range label="Volume" />);
-    expect(screen.getByRole("slider").closest("label")).not.toHaveClass("is-inline");
+    expect(screen.getByRole("slider").closest("label")).not.toHaveClass("is-horizontal");
   });
 
-  it("applies inline class to label when variant is inline", () => {
+  it("applies horizontal class to label when variant is inline", () => {
     render(<Range label="Volume" variant="inline" />);
-    expect(screen.getByRole("slider").closest("label")).toHaveClass("is-inline");
+    expect(screen.getByRole("slider").closest("label")).toHaveClass("is-horizontal");
   });
 
   // Disabled state

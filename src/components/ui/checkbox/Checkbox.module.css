@@ -1,8 +1,5 @@
 @layer component {
   .root {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     padding: 4px;
 
     &:focus-within {

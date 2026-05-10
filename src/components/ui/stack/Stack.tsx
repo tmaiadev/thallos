@@ -55,6 +55,7 @@ export function StackItem({
   grow = 1,
   order = 0,
   shrink = 1,
+  ...props
 }: StackItemProps) {
   const Component = as || "div";
   const style = {
@@ -68,7 +69,8 @@ export function StackItem({
   return (
     <Component
       className={cn(styles["stack-item"], className)}
-      style={style}>
+      style={style}
+      {...props}>
       {children}
     </Component>
   );

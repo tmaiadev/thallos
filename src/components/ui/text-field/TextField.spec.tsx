@@ -54,14 +54,14 @@ describe("TextField", () => {
     expect(screen.getByRole("textbox")).toHaveAttribute("readonly");
   });
 
-  it("applies stacked layout by default — no inline class on label", () => {
+  it("applies stacked layout by default — no horizontal class on label", () => {
     render(<TextField />);
-    expect(screen.getByRole("textbox").closest("label")).not.toHaveClass("inline");
+    expect(screen.getByRole("textbox").closest("label")).not.toHaveClass("is-horizontal");
   });
 
-  it("applies inline class to label when variant is inline", () => {
+  it("applies horizontal class to label when variant is inline", () => {
     render(<TextField variant="inline" />);
-    expect(screen.getByRole("textbox").closest("label")).toHaveClass("inline");
+    expect(screen.getByRole("textbox").closest("label")).toHaveClass("is-horizontal");
   });
 
   it("forwards ref to the underlying input element", () => {

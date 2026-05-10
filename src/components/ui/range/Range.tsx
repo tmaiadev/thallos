@@ -1,12 +1,34 @@
-import type { RangeProps } from "./Range.types";
-import styles from "./Range.module.css";
 import { cn } from "@/utils/cn";
+import Stack, { StackItem } from "../stack";
+import styles from "./Range.module.css";
+import type { RangeProps } from "./Range.types";
 
 export function Range({ label, ref, className, variant = "stacked", prefix, suffix, disabled, ...props }: RangeProps) {
-  return <label className={cn(styles.root, variant === "inline" && styles["is-inline"], disabled && styles["is-disabled"], className)}>
-    <span className={cn(styles.label, variant === "inline" && styles["is-inline"])}>{label}</span>
-    <div className={styles.content}>
-      {prefix && <div aria-hidden className={styles.prefix}>{prefix}</div>}
+  return <Stack
+    as="label"
+    gap={4}
+    dir={variant === "stacked" ? "vertical" : "horizontal"}
+    className={
+      cn(
+        styles.root,
+        disabled && styles["is-disabled"],
+        className
+      )
+    }
+  >
+    <StackItem
+      grow={0}
+      alignSelf="center"
+      className={cn(styles.label, variant === "inline" && styles["is-inline"])}
+    >
+      {label}
+    </StackItem>
+    <Stack
+      dir="horizontal"
+      alignItems="stretch"
+      gap={2}
+    >
+      {prefix && <StackItem aria-hidden alignSelf="center" grow={0}>{prefix}</StackItem>}
       <input
         type="range"
         ref={ref}
@@ -14,7 +36,7 @@ export function Range({ label, ref, className, variant = "stacked", prefix, suff
         disabled={disabled}
         {...props}
       />
-      {suffix && <div aria-hidden className={styles.suffix}>{suffix}</div>}
-    </div>
-  </label>;
+      {suffix && <StackItem aria-hidden alignSelf="center" grow={0}>{suffix}</StackItem>}
+    </Stack>
+  </Stack>;
 }

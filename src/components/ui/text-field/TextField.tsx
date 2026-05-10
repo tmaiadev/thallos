@@ -1,6 +1,7 @@
 import type { TextFieldProps } from "./TextField.types";
 import styles from "./TextField.module.css";
 import { cn } from "../../../utils/cn";
+import Stack, { StackItem } from "../stack";
 
 export function TextField({
   label,
@@ -12,8 +13,20 @@ export function TextField({
   ...props
 }: TextFieldProps) {
   return (
-    <label className={cn(className, styles.root, variant === "inline" && styles.inline)}>
-      {label && <span className={styles.label}>{label}</span>}
+    <Stack
+      as="label"
+      dir={variant === "stacked" ? "vertical" : "horizontal"}
+      alignItems={variant === "stacked" ? "stretch" : "center"}
+      gap={4}
+      className={cn(className, styles.root)}>
+      {label && (
+        <StackItem
+          as="span"
+          className={cn(styles.label, variant === "inline" && styles["is-inline"])}
+        >
+          {label}
+        </StackItem>
+      )}
       <input
         aria-disabled={disabled}
         className={styles.input}
@@ -22,6 +35,6 @@ export function TextField({
         type={type}
         {...props}
       />
-    </label>
+    </Stack>
   );
 }
