@@ -1,5 +1,3 @@
-import type { ButtonHTMLAttributes, RefObject } from "react";
+import type { ComponentPropsWithRef } from "react";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    ref?: RefObject<HTMLButtonElement | null>,
-}
+export type ButtonProps = ComponentPropsWithRef<"button">;

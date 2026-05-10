@@ -1,8 +1,7 @@
-import type { InputHTMLAttributes, RefObject } from "react";
+import type { ComponentPropsWithRef } from "react";
 
-export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
+export interface TextFieldProps extends Omit<ComponentPropsWithRef<"input">, "type"> {
   type?: "text" | "email" | "password" | "search" | "url";
   label?: string;
   variant?: "stacked" | "inline";
-  ref?: RefObject<HTMLInputElement | null>;
 }

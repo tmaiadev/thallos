@@ -1,6 +1,5 @@
-import type { FieldsetHTMLAttributes, ReactNode, RefObject } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 
-export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
+export interface FieldsetProps extends ComponentPropsWithRef<"fieldset"> {
   legend?: ReactNode;
-  ref?: RefObject<HTMLFieldSetElement | null>;
 }

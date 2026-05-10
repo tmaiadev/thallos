@@ -1,5 +1,3 @@
-import type { InputHTMLAttributes, RefObject } from "react";
+import type { ComponentPropsWithRef } from "react";
 
-export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
-  ref?: RefObject<HTMLInputElement | null>;
-}
+export type RadioButtonProps = Omit<ComponentPropsWithRef<"input">, "type">;

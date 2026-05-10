@@ -1,5 +1,3 @@
-import type { InputHTMLAttributes, RefObject } from "react";
+import type { ComponentPropsWithRef } from "react";
 
-export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
-  ref?: RefObject<HTMLInputElement | null>,
-};
+export type CheckboxProps = Omit<ComponentPropsWithRef<"input">, "type">;

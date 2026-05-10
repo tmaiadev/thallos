@@ -1,6 +1,5 @@
-import { HTMLAttributes, RefObject } from "react";
+import type { ComponentPropsWithRef } from "react";
 
-export interface SeparatorProps extends Omit<HTMLAttributes<HTMLHRElement>, "children"> {
+export interface SeparatorProps extends Omit<ComponentPropsWithRef<"hr">, "children"> {
   orientation?: "horizontal" | "vertical";
-  ref?: RefObject<HTMLHRElement | null>;
 }
