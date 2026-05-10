@@ -1,6 +1,6 @@
 import type { ElementType, ComponentPropsWithRef } from "react";
 
-interface StackOwnProps<E extends ElementType = "div"> {
+interface StackOwnProps<E extends ElementType> {
     as?: E,
     alignItems?: "start" | "end" | "center" | "stretch" | "baseline";
     alignContent?: "start" | "end" | "center" | "space-between" | "space-around" | "space-evenly";
@@ -11,9 +11,9 @@ interface StackOwnProps<E extends ElementType = "div"> {
     wrap?: "nowrap" | "wrap" | "wrap-reverse",
 };
 
-export type StackProps<E extends ElementType = "div"> = StackOwnProps<E> & Omit<ComponentPropsWithRef<E>, keyof StackOwnProps<E>>;
+export type StackProps<E extends ElementType> = StackOwnProps<E> & Omit<ComponentPropsWithRef<E>, keyof StackOwnProps<E>>;
 
-export interface StackItemOwnProps<E extends ElementType = "div"> {
+export interface StackItemOwnProps<E extends ElementType> {
     as?: E,
     alignSelf?: "auto" | string;
     basis?: "basis" | string;
@@ -22,4 +22,4 @@ export interface StackItemOwnProps<E extends ElementType = "div"> {
     shrink?: boolean | number;
 }
 
-export type StackItemProps<E extends ElementType = "div"> = StackItemOwnProps<E> & Omit<ComponentPropsWithRef<E>, keyof StackItemOwnProps<E>>;
+export type StackItemProps<E extends ElementType> = StackItemOwnProps<E> & Omit<ComponentPropsWithRef<E>, keyof StackItemOwnProps<E>>;
