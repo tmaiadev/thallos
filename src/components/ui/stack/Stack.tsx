@@ -2,9 +2,11 @@ import { cn } from "@/utils/cn";
 import type { StackProps, StackItemProps } from "./Stack.types.ts";
 import styles from "./Stack.module.css";
 import { formatFlexAlign, formatGrowShrinkProp } from "./Stack.utils.ts";
+import React from "react";
 
 export function Stack({
   children,
+  as,
   alignContent = "start",
   alignItems = "stretch",
   className,
@@ -16,8 +18,17 @@ export function Stack({
   wrap = "wrap",
   ...props
 }: StackProps) {
+  const Component = as || "div";
+  const style = {
+    "--align-content": formatFlexAlign(alignContent),
+    "--align-items": formatFlexAlign(alignItems),
+    "--gap": `${gap * 2}px`,
+    "--justify-content": formatFlexAlign(justifyContent),
+    "--wrap": wrap,
+  } as React.CSSProperties;
+
   return (
-    <div
+    <Component
       className={
         cn(
           styles.stack,
@@ -26,22 +37,17 @@ export function Stack({
           className
         )
       }
-      style={{
-        "--align-content": formatFlexAlign(alignContent),
-        "--align-items": formatFlexAlign(alignItems),
-        "--gap": `${gap * 2}px`,
-        "--justify-content": formatFlexAlign(justifyContent),
-        "--wrap": wrap,
-      } as React.CSSProperties}
+      style={style}
       ref={ref}
       {...props}
     >
       {children}
-    </div>
+    </Component>
   );
 };
 
 export function StackItem({
+  as,
   alignSelf = "auto",
   basis = "auto",
   children,
@@ -50,13 +56,20 @@ export function StackItem({
   order = 0,
   shrink = 1,
 }: StackItemProps) {
+  const Component = as || "div";
+  const style = {
+    "--align-self": formatFlexAlign(alignSelf),
+    "--basis": basis,
+    "--grow": formatGrowShrinkProp(grow),
+    "--order": order,
+    "--shrink": formatGrowShrinkProp(shrink),
+  } as React.CSSProperties;
+
   return (
-    <div className={cn(styles["stack-item"], className)} style={{
-      "--align-self": formatFlexAlign(alignSelf),
-      "--basis": basis,
-      "--grow": formatGrowShrinkProp(grow),
-      "--order": order,
-      "--shrink": formatGrowShrinkProp(shrink),
-    } as React.CSSProperties}>{children}</div>
+    <Component
+      className={cn(styles["stack-item"], className)}
+      style={style}>
+      {children}
+    </Component>
   );
 }
